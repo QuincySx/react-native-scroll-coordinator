@@ -3237,7 +3237,7 @@ __metadata:
     react-native-safe-area-context: "npm:^5.5.2"
     react-native-scroll-coordinator: "portal:.."
     react-native-web: "npm:^0.21.2"
-    react-test-renderer: "npm:19.1.0"
+    react-test-renderer: "npm:19.2.7"
     typescript: "npm:^5.8.3"
     vite: "npm:^7.1.12"
   languageName: unknown
@@ -8243,7 +8243,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^19.1.0":
+"react-is@npm:^19.2.7":
   version: 19.2.7
   resolution: "react-is@npm:19.2.7"
   checksum: 10c0/419fe54d5bd7fdf5414a5bb7bd9a1e0e36f9fae28ffb4cb73290fbe342bde15d8584a90d1db62547f6aa03018dce517b178a041abb522136cd4b4b51b4e94c83
@@ -8477,15 +8477,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-test-renderer@npm:19.1.0":
-  version: 19.1.0
-  resolution: "react-test-renderer@npm:19.1.0"
+"react-test-renderer@npm:19.2.7":
+  version: 19.2.7
+  resolution: "react-test-renderer@npm:19.2.7"
   dependencies:
-    react-is: "npm:^19.1.0"
-    scheduler: "npm:^0.26.0"
+    react-is: "npm:^19.2.7"
+    scheduler: "npm:^0.27.0"
   peerDependencies:
-    react: ^19.1.0
-  checksum: 10c0/34ed4a37ba8b0beb96c048de6ff28574f018a18dd1042c24f8f46142d48eb5b27f82ff7c2823d082932fd3983c5a3529ab8cc8f15191d4306df0082f9f84678f
+    react: ^19.2.7
+  checksum: 10c0/81a065f09a3400453baf6a518b0f2536312041d7e216f361bfea6d54e800ba6e125b1eced2322f349a96ec0227c5a277b56aaa6a7c31562fcb169130151d804d
   languageName: node
   linkType: hard
 
@@ -8875,6 +8875,13 @@ __metadata:
   version: 0.26.0
   resolution: "scheduler@npm:0.26.0"
   checksum: 10c0/5b8d5bfddaae3513410eda54f2268e98a376a429931921a81b5c3a2873aab7ca4d775a8caac5498f8cbc7d0daeab947cf923dbd8e215d61671f9f4e392d34356
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.27.0":
+  version: 0.27.0
+  resolution: "scheduler@npm:0.27.0"
+  checksum: 10c0/4f03048cb05a3c8fddc45813052251eca00688f413a3cee236d984a161da28db28ba71bd11e7a3dd02f7af84ab28d39fb311431d3b3772fed557945beb00c452
   languageName: node
   linkType: hard
 
