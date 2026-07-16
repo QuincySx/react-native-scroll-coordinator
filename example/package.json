@@ -19,7 +19,7 @@
     "react-native": "0.81.5",
     "react-native-collapsible-tab-view": "8.0.1",
     "react-native-pager-view": "8.0.4",
-    "react-native-reanimated": "3.19.4",
+    "react-native-reanimated": "4.5.2",
     "react-native-safe-area-context": "^5.5.2",
     "react-native-scroll-coordinator": "portal:..",
     "react-native-web": "^0.21.2"
