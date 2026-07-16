@@ -1,0 +1,13 @@
+pluginManagement {
+    def localPlugin = file('node_modules/@react-native/gradle-plugin')
+    includeBuild(localPlugin)
+
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'react-native-scroll-coordinator'
+include ':android'

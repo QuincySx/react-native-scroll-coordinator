@@ -1,0 +1,6 @@
+android/.gradle/
+android/app/build/
+dist/
+ios/Pods/
+ios/build/
+node_modules/

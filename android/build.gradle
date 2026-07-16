@@ -1,0 +1,59 @@
+plugins {
+    id 'com.android.library'
+    id 'com.facebook.react'
+}
+
+def getExtOrDefault(name, fallback) {
+    return rootProject.ext.has(name) ? rootProject.ext.get(name) : fallback
+}
+
+android {
+    namespace 'com.scrollcoordinator'
+    compileSdkVersion getExtOrDefault('compileSdkVersion', 36)
+
+    defaultConfig {
+        minSdkVersion getExtOrDefault('minSdkVersion', 24)
+        targetSdkVersion getExtOrDefault('targetSdkVersion', 36)
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+
+    lint {
+        warningsAsErrors true
+        disable 'NewerVersionAvailable'
+    }
+}
+
+def localReactNative = file('../node_modules/react-native')
+def localCodegen = file('../node_modules/@react-native/codegen')
+
+if (rootProject.name == 'react-native-scroll-coordinator') {
+    def privateReact = rootProject.extensions.getByName('privateReact')
+    privateReact.root.set(rootProject.layout.projectDirectory)
+    privateReact.reactNativeDir.set(localReactNative)
+    privateReact.codegenDir.set(localCodegen)
+}
+
+react {
+    reactNativeDir = localReactNative
+    codegenDir = localCodegen
+    jsRootDir = file('../src')
+    libraryName = 'RNCoordinatorSpec'
+    codegenJavaPackageName = 'com.scrollcoordinator'
+}
+
+dependencies {
+    implementation "com.facebook.react:react-android:${getExtOrDefault('reactNativeVersion', '0.81.5')}"
+    api 'androidx.coordinatorlayout:coordinatorlayout:1.3.0'
+    api 'com.google.android.material:material:1.14.0'
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.15.1'
+}
