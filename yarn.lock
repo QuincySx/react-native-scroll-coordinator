@@ -2580,10 +2580,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native/typescript-config@npm:0.81.5":
-  version: 0.81.5
-  resolution: "@react-native/typescript-config@npm:0.81.5"
-  checksum: 10c0/96d27a85bff90328582a7e6eb0e2d2d0f847d8946d76d6449f397d889de9be6210a76aa1822ff7713c662870bc06f0f9bd293f3715bde6076f7f99137974ad7c
+"@react-native/typescript-config@npm:0.86.0":
+  version: 0.86.0
+  resolution: "@react-native/typescript-config@npm:0.86.0"
+  checksum: 10c0/66020e6d945e863847639b4932ef22082dad8ba4e345fe785b85987ae18a6cb56b31539c3502731238580ad96a9b1de32fac55e2e245debf693f039ec36fcffc
   languageName: node
   linkType: hard
 
@@ -3219,7 +3219,7 @@ __metadata:
     "@react-native/eslint-config": "npm:0.81.5"
     "@react-native/metro-config": "npm:0.81.5"
     "@react-native/new-app-screen": "npm:0.81.5"
-    "@react-native/typescript-config": "npm:0.81.5"
+    "@react-native/typescript-config": "npm:0.86.0"
     "@shopify/flash-list": "npm:2.3.2"
     "@types/jest": "npm:^29.5.13"
     "@types/react": "npm:^19.1.0"
