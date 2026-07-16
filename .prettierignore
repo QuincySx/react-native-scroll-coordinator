@@ -1,0 +1,11 @@
+.gradle
+.yarn
+android/build
+build
+example/android
+example/dist
+example/ios
+example/node_modules
+lib
+node_modules
+yarn.lock

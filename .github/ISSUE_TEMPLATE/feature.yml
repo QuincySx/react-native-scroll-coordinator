@@ -1,0 +1,23 @@
+name: Feature request
+description: Propose a portable coordinator capability
+title: 'feature: '
+labels: [enhancement]
+body:
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Product use case
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Proposed cross-platform behavior
+      description: Describe Android, iOS, Web, accessibility, and fallback semantics
+    validations:
+      required: true
+  - type: textarea
+    id: performance
+    attributes:
+      label: Performance constraints
+      description: State whether the behavior requires per-frame coordination

@@ -1,0 +1,19 @@
+plugins {
+    id 'com.android.library' version '8.11.0' apply false
+    id 'com.facebook.react' apply false
+}
+
+ext {
+    buildToolsVersion = '36.0.0'
+    compileSdkVersion = 36
+    minSdkVersion = 24
+    reactNativeVersion = '0.81.5'
+    targetSdkVersion = 36
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
