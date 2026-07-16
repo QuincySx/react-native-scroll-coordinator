@@ -2552,17 +2552,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native/new-app-screen@npm:0.81.5":
-  version: 0.81.5
-  resolution: "@react-native/new-app-screen@npm:0.81.5"
+"@react-native/new-app-screen@npm:0.86.0":
+  version: 0.86.0
+  resolution: "@react-native/new-app-screen@npm:0.86.0"
   peerDependencies:
     "@types/react": ^19.1.0
     react: "*"
-    react-native: "*"
+    react-native: 0.86.0
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10c0/b851159b97d03e618d6b84fa91302f8482e1bd83de7a147febf4d9cf84ee0414da1afa351850e28492411e817f473e9cfc156c5a550bea0614ebdf4f627b2b0a
+  checksum: 10c0/99f905ff4a56bf4eb9f1614ce7dd2f55f330b40ca2e43330be33db50468748789d1a57b15d42c11ac7feb144c1daea84e8e4091c3b473be46922faf0dda2de5b
   languageName: node
   linkType: hard
 
@@ -3218,7 +3218,7 @@ __metadata:
     "@react-native/babel-preset": "npm:0.81.5"
     "@react-native/eslint-config": "npm:0.81.5"
     "@react-native/metro-config": "npm:0.81.5"
-    "@react-native/new-app-screen": "npm:0.81.5"
+    "@react-native/new-app-screen": "npm:0.86.0"
     "@react-native/typescript-config": "npm:0.81.5"
     "@shopify/flash-list": "npm:2.3.2"
     "@types/jest": "npm:^29.5.13"
