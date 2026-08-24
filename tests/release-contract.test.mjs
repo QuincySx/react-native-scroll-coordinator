@@ -171,8 +171,10 @@ test('CI and release workflows pin actions and isolate npm identity', async () =
   assert.doesNotMatch(ci, /node-version: 20/);
   assert.match(ci, /ruby\/setup-ruby@[a-f0-9]{40}/);
   assert.match(ci, /bundler: 2\.7\.2/);
+  assert.match(release, /push:\n\s+tags:\n\s+- 'v\*'/);
   assert.match(release, /needs: verify/);
   assert.match(release, /id-token: write/);
+  assert.match(release, /NODE_AUTH_TOKEN: \$\{\{ secrets\.NPM_TOKEN \}\}/);
   assert.match(
     release,
     /npm publish package-artifact\/package\.tgz --ignore-scripts/,
