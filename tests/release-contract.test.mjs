@@ -167,6 +167,9 @@ test('CI and release workflows pin actions and isolate npm identity', async () =
   ]);
 
   assert.doesNotMatch(`${ci}\n${release}`, /uses: [^\s]+@v\d/);
+  assert.doesNotMatch(`${ci}\n${release}`, /cache: yarn/);
+  assert.doesNotMatch(ci, /node-version: 20/);
+  assert.match(ci, /ruby\/setup-ruby@[a-f0-9]{40}/);
   assert.match(release, /needs: verify/);
   assert.match(release, /id-token: write/);
   assert.match(
