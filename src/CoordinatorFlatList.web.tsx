@@ -1,17 +1,16 @@
-import {
-  forwardRef,
-  type ForwardedRef,
-  type ReactElement,
-  type RefAttributes,
-} from 'react';
+import { type ReactElement, type Ref } from 'react';
 import { FlatList, type FlatListProps } from 'react-native';
 
 import { useCoordinatorWebListHeader } from './CoordinatorWebContext.web';
 
-function CoordinatorFlatListInner<ItemT>(
-  props: FlatListProps<ItemT>,
-  ref: ForwardedRef<FlatList<ItemT>>,
-) {
+export type CoordinatorFlatListProps<ItemT> = FlatListProps<ItemT> & {
+  ref?: Ref<FlatList<ItemT>>;
+};
+
+export function CoordinatorFlatList<ItemT>({
+  ref,
+  ...props
+}: CoordinatorFlatListProps<ItemT>): ReactElement {
   const ListHeaderComponent = useCoordinatorWebListHeader(
     props.ListHeaderComponent,
   );
@@ -19,9 +18,3 @@ function CoordinatorFlatListInner<ItemT>(
     <FlatList {...props} ref={ref} ListHeaderComponent={ListHeaderComponent} />
   );
 }
-
-export const CoordinatorFlatList = forwardRef(CoordinatorFlatListInner) as <
-  ItemT,
->(
-  props: FlatListProps<ItemT> & RefAttributes<FlatList<ItemT>>,
-) => ReactElement;

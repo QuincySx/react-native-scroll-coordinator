@@ -9,10 +9,20 @@ assert.match(publicEntry, /CoordinatorTabs/);
 assert.doesNotMatch(publicEntry, /CoordinatorFlashList/);
 assert.match(publicEntry, /CoordinatorVirtualList/);
 assert.match(publicEntry, /CoordinatorHorizontal/);
+assert.match(publicEntry, /CoordinatorSectionList/);
 
 const virtualList = await readText('src/CoordinatorVirtualList.tsx');
 assert.match(virtualList, /CoordinatorScrollView/);
 assert.match(virtualList, /renderScrollComponent/);
+
+const androidSectionList = await readText('src/CoordinatorSectionList.tsx');
+assert.match(androidSectionList, /CoordinatorScrollView/);
+assert.match(androidSectionList, /renderScrollComponent/);
+assert.match(androidSectionList, /nestedScrollEnabled/);
+const iosSectionList = await readText('src/CoordinatorSectionList.ios.tsx');
+assert.match(iosSectionList, /Tabs\.SectionList/);
+const webSectionList = await readText('src/CoordinatorSectionList.web.tsx');
+assert.match(webSectionList, /useCoordinatorWebListHeader/);
 
 const androidHorizontal = await readText(
   'src/CoordinatorHorizontal.android.tsx',

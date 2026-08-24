@@ -1,18 +1,18 @@
-import {
-  forwardRef,
-  type ForwardedRef,
-  type ReactElement,
-  type RefAttributes,
-} from 'react';
+import { type ReactElement, type Ref } from 'react';
 import { FlashList, type FlashListRef } from '@shopify/flash-list';
 
 import type { CoordinatorFlashListProps } from './CoordinatorFlashList.types';
 import { CoordinatorScrollView } from './CoordinatorScrollView';
 
-function CoordinatorFlashListInner<ItemT>(
-  props: CoordinatorFlashListProps<ItemT>,
-  ref: ForwardedRef<FlashListRef<ItemT>>,
-) {
+type CoordinatorFlashListWithRefProps<ItemT> =
+  CoordinatorFlashListProps<ItemT> & {
+    ref?: Ref<FlashListRef<ItemT>>;
+  };
+
+export function CoordinatorFlashList<ItemT>({
+  ref,
+  ...props
+}: CoordinatorFlashListWithRefProps<ItemT>): ReactElement {
   const { maintainVisibleContentPosition = { disabled: true }, ...listProps } =
     props;
 
@@ -25,9 +25,3 @@ function CoordinatorFlashListInner<ItemT>(
     />
   );
 }
-
-export const CoordinatorFlashList = forwardRef(CoordinatorFlashListInner) as <
-  ItemT,
->(
-  props: CoordinatorFlashListProps<ItemT> & RefAttributes<FlashListRef<ItemT>>,
-) => ReactElement;

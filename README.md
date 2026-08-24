@@ -124,8 +124,23 @@ available for compatibility, and `CoordinatorHeader.Container` remains an alias
 for `CoordinatorHeader`. The root compound-component syntax above is
 recommended.
 
-Use `CoordinatorFlatList` for the built-in virtualized list. For heavier
-cards, use the FlashList adapter:
+Use `CoordinatorFlatList` for a flat virtualized list or
+`CoordinatorSectionList` when the page needs grouped rows and section headers:
+
+```tsx
+import { CoordinatorSectionList } from 'react-native-scroll-coordinator';
+
+<CoordinatorSectionList
+  sections={sections}
+  keyExtractor={(item) => item.id}
+  renderItem={renderItem}
+  renderSectionHeader={renderSectionHeader}
+/>;
+```
+
+Both adapters preserve the native list API, including React 19's plain `ref`
+prop, refresh controls, pagination, and virtualization. For heavier cards, use
+the FlashList adapter:
 
 ```tsx
 import { CoordinatorFlashList } from 'react-native-scroll-coordinator/flash-list';

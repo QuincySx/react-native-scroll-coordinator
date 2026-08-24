@@ -1,9 +1,4 @@
-import {
-  forwardRef,
-  type ForwardedRef,
-  type ReactElement,
-  type RefAttributes,
-} from 'react';
+import { type ReactElement, type Ref } from 'react';
 import {
   ScrollView,
   type ScrollView as ScrollViewHandle,
@@ -14,10 +9,15 @@ import { useCoordinatorWebChrome } from './CoordinatorWebContext.web';
 
 export type CoordinatorScrollViewHandle = ScrollViewHandle;
 
-function CoordinatorScrollViewInner(
-  { children, ...props }: ScrollViewProps,
-  ref: ForwardedRef<ScrollViewHandle>,
-) {
+export type CoordinatorScrollViewProps = ScrollViewProps & {
+  ref?: Ref<ScrollViewHandle>;
+};
+
+export function CoordinatorScrollView({
+  children,
+  ref,
+  ...props
+}: CoordinatorScrollViewProps): ReactElement {
   const chrome = useCoordinatorWebChrome();
   return (
     <ScrollView {...props} ref={ref}>
@@ -26,7 +26,3 @@ function CoordinatorScrollViewInner(
     </ScrollView>
   );
 }
-
-export const CoordinatorScrollView = forwardRef(CoordinatorScrollViewInner) as (
-  props: ScrollViewProps & RefAttributes<ScrollViewHandle>,
-) => ReactElement;

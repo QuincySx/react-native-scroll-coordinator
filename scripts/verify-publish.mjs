@@ -5,6 +5,7 @@ const packageJson = JSON.parse(
   await readFile(new URL('../package.json', import.meta.url), 'utf8'),
 );
 const repositoryUrl = packageJson.repository?.url;
+const releaseTag = process.env.GITHUB_REF_NAME;
 const failures = [];
 
 if (
@@ -20,6 +21,11 @@ if (typeof packageJson.homepage !== 'string') {
 }
 if (typeof packageJson.bugs?.url !== 'string') {
   failures.push('package.json bugs.url is required');
+}
+if (releaseTag != null && releaseTag !== `v${packageJson.version}`) {
+  failures.push(
+    `release tag ${releaseTag} must match package version v${packageJson.version}`,
+  );
 }
 
 if (failures.length > 0) {

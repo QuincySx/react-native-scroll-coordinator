@@ -2,6 +2,7 @@ export { Coordinator } from './Coordinator.web';
 export { CoordinatorFlatList } from './CoordinatorFlatList.web';
 export { CoordinatorHeader } from './CoordinatorHeader.web';
 export { CoordinatorHorizontal } from './CoordinatorHorizontal.web';
+export { CoordinatorSectionList } from './CoordinatorSectionList.web';
 export { CoordinatorScrollView } from './CoordinatorScrollView.web';
 export { CoordinatorTabs } from './CoordinatorTabs.web';
 export { CoordinatorVirtualList } from './CoordinatorVirtualList.web';
@@ -12,6 +13,7 @@ export type {
   CoordinatorHeaderProps,
 } from './CoordinatorHeader.types';
 export type { CoordinatorHorizontalProps } from './CoordinatorHorizontal.types';
+export type { CoordinatorSectionListProps } from './CoordinatorSectionList.types';
 export type { CoordinatorScrollViewHandle } from './CoordinatorScrollView.web';
 export type {
   CoordinatorTab,

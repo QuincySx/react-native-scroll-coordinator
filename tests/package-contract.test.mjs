@@ -21,9 +21,26 @@ assert.match(nativeSpec, /RNCoordinator/);
 const publicEntry = await readText('src/index.ts');
 assert.match(publicEntry, /CoordinatorFlatList/);
 assert.match(publicEntry, /CoordinatorHeader/);
+assert.match(publicEntry, /CoordinatorSectionList/);
 assert.match(publicEntry, /CoordinatorScrollView/);
 assert.doesNotMatch(publicEntry, /CoordinatorFlashList/);
 assert.doesNotMatch(publicEntry, /HomeCoordinator/);
+assert.doesNotMatch(
+  (
+    await Promise.all(
+      [
+        'src/CoordinatorFlatList.tsx',
+        'src/CoordinatorFlatList.web.tsx',
+        'src/CoordinatorFlashList.android.tsx',
+        'src/CoordinatorFlashList.web.tsx',
+        'src/CoordinatorScrollView.web.tsx',
+        'src/CoordinatorSectionList.tsx',
+        'src/CoordinatorSectionList.web.tsx',
+      ].map(readText),
+    )
+  ).join('\n'),
+  /forwardRef|ForwardedRef|RefAttributes/,
+);
 
 const androidBuild = await readText('android/build.gradle');
 assert.match(androidBuild, /com\.facebook\.react/);

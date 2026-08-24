@@ -1,18 +1,14 @@
-import { type ReactElement, type Ref, useCallback } from 'react';
+import { type ReactElement, useCallback } from 'react';
 import {
-  FlatList,
   RefreshControl,
-  type FlatListProps,
+  SectionList,
   type ScrollViewProps,
 } from 'react-native';
 
 import { CoordinatorScrollView } from './CoordinatorScrollView';
+import type { CoordinatorSectionListProps } from './CoordinatorSectionList.types';
 
-export type CoordinatorFlatListProps<ItemT> = FlatListProps<ItemT> & {
-  ref?: Ref<FlatList<ItemT>>;
-};
-
-export function CoordinatorFlatList<ItemT>({
+export function CoordinatorSectionList<ItemT, SectionT>({
   nestedScrollEnabled: _nestedScrollEnabled,
   onRefresh,
   progressViewOffset,
@@ -20,7 +16,7 @@ export function CoordinatorFlatList<ItemT>({
   refreshControl,
   refreshing,
   ...props
-}: CoordinatorFlatListProps<ItemT>): ReactElement {
+}: CoordinatorSectionListProps<ItemT, SectionT>): ReactElement {
   const renderScrollComponent = useCallback(
     (scrollProps: ScrollViewProps) => (
       <CoordinatorScrollView
@@ -41,7 +37,7 @@ export function CoordinatorFlatList<ItemT>({
   );
 
   return (
-    <FlatList
+    <SectionList
       {...props}
       ref={ref}
       nestedScrollEnabled

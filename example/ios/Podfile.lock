@@ -2830,7 +2830,7 @@ SPEC CHECKSUMS:
   React-microtasksnativemodule: 6c4ee39a36958c39c97b074d28f360246a335e84
   react-native-pager-view: 1baaa3452a7d5efbd642856cbbdafbd8958028b4
   react-native-safe-area-context: ebd2c2ece5e6e650a6963184039ec8cfd8960d86
-  react-native-scroll-coordinator: 84be8b9a9f530e597e33efdf13c76dedd9ac93bd
+  react-native-scroll-coordinator: c6557d315ca25ce092aec08f9ffdfd03b459d6be
   React-NativeModulesApple: ebf2ce72b35870036900d6498b33724386540a71
   React-oscompat: eb0626e8ba1a2c61673c991bf9dc21834898475d
   React-perflogger: 509e1f9a3ee28df71b0a66de806ac515ce951246

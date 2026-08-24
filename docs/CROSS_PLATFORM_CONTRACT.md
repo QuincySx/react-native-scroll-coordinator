@@ -71,8 +71,8 @@ discarded. They must be implemented or removed before a cross-platform `1.0`.
   retained geometry and cross-fades over the configured transition range.
   Omitting `Collapsed` retains zero Header height. Both content layouts remain
   mounted throughout a transition.
-- `CoordinatorFlatList`, `CoordinatorFlashList`, and `CoordinatorScrollView`
-  are ready-made coordinated scroll hosts.
+- `CoordinatorFlatList`, `CoordinatorSectionList`, `CoordinatorFlashList`, and
+  `CoordinatorScrollView` are ready-made coordinated scroll hosts.
 - `CoordinatorHorizontal` marks a nested horizontal region that keeps a drag
   while its descendant can scroll, then releases it to the outer pager at the
   descendant's directional edge.
@@ -147,8 +147,8 @@ discarded. They must be implemented or removed before a cross-platform `1.0`.
   Nested horizontal scrollers use the browser's directional scroll chaining;
   no React state update drives per-frame movement. Visited pages stay mounted
   so their list offsets survive tab changes.
-- Both FlatList and FlashList adapters preserve virtualization; rendering every
-  row is not used as a fallback.
+- FlatList, SectionList, and FlashList adapters preserve virtualization;
+  rendering every row is not used as a fallback.
 - Custom virtual engines receive the Web scroll host from
   `CoordinatorVirtualList`, preserving the single DOM vertical scroll owner.
 

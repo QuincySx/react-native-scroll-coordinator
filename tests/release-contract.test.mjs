@@ -20,6 +20,18 @@ test('platform horizontal adapters resolve through explicit platform implementat
   assert.match(nativeComponent, /RNCoordinatorHorizontal/);
 });
 
+test('SectionList adapters preserve each platform scroll engine', async () => {
+  const [androidAdapter, iosAdapter, webAdapter] = await Promise.all([
+    readText('src/CoordinatorSectionList.tsx'),
+    readText('src/CoordinatorSectionList.ios.tsx'),
+    readText('src/CoordinatorSectionList.web.tsx'),
+  ]);
+
+  assert.match(androidAdapter, /CoordinatorScrollView/);
+  assert.match(iosAdapter, /Tabs\.SectionList/);
+  assert.match(webAdapter, /useCoordinatorWebListHeader/);
+});
+
 async function listFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
   const files = await Promise.all(
@@ -145,6 +157,24 @@ test('alpha package declares bounded compatibility and release governance', asyn
       'scripts/verify-publish.mjs',
     ].map((path) => access(new URL(path, packageRoot))),
   );
+});
+
+test('CI and release workflows pin actions and isolate npm identity', async () => {
+  const [ci, release, publishVerifier] = await Promise.all([
+    readText('.github/workflows/ci.yml'),
+    readText('.github/workflows/release.yml'),
+    readText('scripts/verify-publish.mjs'),
+  ]);
+
+  assert.doesNotMatch(`${ci}\n${release}`, /uses: [^\s]+@v\d/);
+  assert.match(release, /needs: verify/);
+  assert.match(release, /id-token: write/);
+  assert.match(
+    release,
+    /npm publish package-artifact\/package\.tgz --ignore-scripts/,
+  );
+  assert.match(publishVerifier, /GITHUB_REF_NAME/);
+  assert.match(publishVerifier, /v\$\{packageJson\.version\}/);
 });
 
 test('example documents every interaction-lab scenario', async () => {
