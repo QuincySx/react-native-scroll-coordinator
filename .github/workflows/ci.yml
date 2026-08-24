@@ -55,7 +55,7 @@ jobs:
       - uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
         with:
           ruby-version: '3.3'
-          bundler: default
+          bundler: 2.7.2
           working-directory: example
       - run: corepack enable
       - run: yarn install --immutable --mode=skip-build
