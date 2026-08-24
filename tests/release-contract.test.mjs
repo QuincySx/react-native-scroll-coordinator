@@ -174,7 +174,7 @@ test('CI and release workflows pin actions and isolate npm identity', async () =
   assert.match(release, /push:\n\s+tags:\n\s+- 'v\*'/);
   assert.match(release, /needs: verify/);
   assert.match(release, /id-token: write/);
-  assert.match(release, /NODE_AUTH_TOKEN: \$\{\{ secrets\.NPM_TOKEN \}\}/);
+  assert.doesNotMatch(release, /NODE_AUTH_TOKEN|NPM_TOKEN/);
   assert.match(
     release,
     /npm publish \.\/package-artifact\/package\.tgz --ignore-scripts/,

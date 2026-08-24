@@ -47,5 +47,3 @@ jobs:
           name: npm-package
           path: package-artifact
       - run: npm publish ./package-artifact/package.tgz --ignore-scripts --access public --tag alpha --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
